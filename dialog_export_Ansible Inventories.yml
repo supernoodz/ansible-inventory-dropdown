@@ -1,0 +1,117 @@
+---
+- description: 
+  buttons: submit,cancel
+  label: Ansible Inventories
+  blueprint_id: 
+  dialog_tabs:
+  - description: 
+    display: edit
+    label: tab
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: edit
+      label: box
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: inventory_root_group
+        description: inventory_root_group
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: true
+        required_method: 
+        required_method_options: {}
+        default_value: "!"
+        values:
+        - - "!"
+          - "-- select from list --"
+        - - '2'
+          - CFME Default Inventory
+        - - '6'
+          - cloudforms_42
+        - - '7'
+          - cloudforms_42_ansible
+        - - '9'
+          - EC2 Inventory
+        - - '4'
+          - manageiq
+        - - '10'
+          - OpenStack (BCBS-SC)
+        - - '11'
+          - Red Hat Insights
+        - - '12'
+          - Costco
+        values_method: 
+        values_method_options: {}
+        options:
+          :force_multi_value: false
+          :sort_by: :value
+        label: Inventory
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        dynamic: true
+        show_refresh_button: 
+        load_values_on_init: 
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: false
+        visible: true
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: Integration/RedHat/Ansible-Tower
+          ae_class: Methods
+          ae_instance: inventory_groups
+          ae_message: 
+          ae_attributes: {}
+      - name: inventory_root_group_hosts
+        description: inventory_root_group_hosts
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values:
+        - - 
+          - "<Script error>"
+        values_method: 
+        values_method_options: {}
+        options:
+          :force_multi_value: false
+        label: Inventory Host
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: 
+        dynamic: true
+        show_refresh_button: true
+        load_values_on_init: 
+        read_only: false
+        auto_refresh: 
+        trigger_auto_refresh: 
+        visible: true
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: Integration/RedHat/Ansible-Tower
+          ae_class: Methods
+          ae_instance: inventory_group_hosts
+          ae_message: 
+          ae_attributes: {}
